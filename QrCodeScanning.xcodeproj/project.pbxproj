@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3853D71D3CCAEF0001A125 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3853D61D3CCAEF0001A125 /* WebViewController.m */; };
+		3F3853D91D3CDE950001A125 /* icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F3853D81D3CDE950001A125 /* icon_back.png */; };
+		3F3853DC1D3CE5B00001A125 /* icon_topLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F3853DA1D3CE5B00001A125 /* icon_topLeft@2x.png */; };
+		3F3853DD1D3CE5B00001A125 /* icon_topLeft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F3853DB1D3CE5B00001A125 /* icon_topLeft@3x.png */; };
+		3F3853E01D3CE5B80001A125 /* icon_topRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F3853DE1D3CE5B80001A125 /* icon_topRight@2x.png */; };
+		3F3853E11D3CE5B80001A125 /* icon_topRight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F3853DF1D3CE5B80001A125 /* icon_topRight@3x.png */; };
+		3F3853E41D3CE5C10001A125 /* icon_bottomRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F3853E21D3CE5C10001A125 /* icon_bottomRight@2x.png */; };
+		3F3853E51D3CE5C10001A125 /* icon_bottomRight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F3853E31D3CE5C10001A125 /* icon_bottomRight@3x.png */; };
+		3F3853E81D3CE5C90001A125 /* icon_bottomleft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F3853E61D3CE5C90001A125 /* icon_bottomleft@2x.png */; };
+		3F3853E91D3CE5C90001A125 /* icon_bottomleft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F3853E71D3CE5C90001A125 /* icon_bottomleft@3x.png */; };
+		3F3853EE1D3CE6630001A125 /* icon_QRCodeScanLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F3853EC1D3CE6630001A125 /* icon_QRCodeScanLine@2x.png */; };
+		3F3853EF1D3CE6630001A125 /* icon_QRCodeScanLine@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F3853ED1D3CE6630001A125 /* icon_QRCodeScanLine@3x.png */; };
 		3F5FD1B41D26701B005EBA9E /* QrCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5FD1B31D26701B005EBA9E /* QrCodeViewController.m */; };
 		3FD1E5C41D23A29F004C0CC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1E5C31D23A29F004C0CC0 /* main.m */; };
 		3FD1E5C71D23A29F004C0CC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1E5C61D23A29F004C0CC0 /* AppDelegate.m */; };
@@ -38,6 +50,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F3853D51D3CCAEF0001A125 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		3F3853D61D3CCAEF0001A125 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		3F3853D81D3CDE950001A125 /* icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back.png; sourceTree = "<group>"; };
+		3F3853DA1D3CE5B00001A125 /* icon_topLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_topLeft@2x.png"; sourceTree = "<group>"; };
+		3F3853DB1D3CE5B00001A125 /* icon_topLeft@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_topLeft@3x.png"; sourceTree = "<group>"; };
+		3F3853DE1D3CE5B80001A125 /* icon_topRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_topRight@2x.png"; sourceTree = "<group>"; };
+		3F3853DF1D3CE5B80001A125 /* icon_topRight@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_topRight@3x.png"; sourceTree = "<group>"; };
+		3F3853E21D3CE5C10001A125 /* icon_bottomRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_bottomRight@2x.png"; sourceTree = "<group>"; };
+		3F3853E31D3CE5C10001A125 /* icon_bottomRight@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_bottomRight@3x.png"; sourceTree = "<group>"; };
+		3F3853E61D3CE5C90001A125 /* icon_bottomleft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_bottomleft@2x.png"; sourceTree = "<group>"; };
+		3F3853E71D3CE5C90001A125 /* icon_bottomleft@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_bottomleft@3x.png"; sourceTree = "<group>"; };
+		3F3853EC1D3CE6630001A125 /* icon_QRCodeScanLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_QRCodeScanLine@2x.png"; sourceTree = "<group>"; };
+		3F3853ED1D3CE6630001A125 /* icon_QRCodeScanLine@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_QRCodeScanLine@3x.png"; sourceTree = "<group>"; };
 		3F5FD1B21D26701B005EBA9E /* QrCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QrCodeViewController.h; sourceTree = "<group>"; };
 		3F5FD1B31D26701B005EBA9E /* QrCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QrCodeViewController.m; sourceTree = "<group>"; };
 		3FD1E5BF1D23A29F004C0CC0 /* QrCodeScanning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QrCodeScanning.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,8 +139,21 @@
 				3FD1E5C91D23A29F004C0CC0 /* ViewController.m */,
 				3F5FD1B21D26701B005EBA9E /* QrCodeViewController.h */,
 				3F5FD1B31D26701B005EBA9E /* QrCodeViewController.m */,
+				3F3853D51D3CCAEF0001A125 /* WebViewController.h */,
+				3F3853D61D3CCAEF0001A125 /* WebViewController.m */,
 				3FD1E5F51D23A420004C0CC0 /* icon_qrcode@3x.png */,
 				3FD1E5F61D23A420004C0CC0 /* icon_qrcode@2x.png */,
+				3F3853D81D3CDE950001A125 /* icon_back.png */,
+				3F3853DA1D3CE5B00001A125 /* icon_topLeft@2x.png */,
+				3F3853DB1D3CE5B00001A125 /* icon_topLeft@3x.png */,
+				3F3853DE1D3CE5B80001A125 /* icon_topRight@2x.png */,
+				3F3853DF1D3CE5B80001A125 /* icon_topRight@3x.png */,
+				3F3853E21D3CE5C10001A125 /* icon_bottomRight@2x.png */,
+				3F3853E31D3CE5C10001A125 /* icon_bottomRight@3x.png */,
+				3F3853E61D3CE5C90001A125 /* icon_bottomleft@2x.png */,
+				3F3853E71D3CE5C90001A125 /* icon_bottomleft@3x.png */,
+				3F3853EC1D3CE6630001A125 /* icon_QRCodeScanLine@2x.png */,
+				3F3853ED1D3CE6630001A125 /* icon_QRCodeScanLine@3x.png */,
 				3FD1E5CB1D23A29F004C0CC0 /* Main.storyboard */,
 				3FD1E5CE1D23A29F004C0CC0 /* Assets.xcassets */,
 				3FD1E5D01D23A29F004C0CC0 /* LaunchScreen.storyboard */,
@@ -254,11 +292,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3853E51D3CE5C10001A125 /* icon_bottomRight@3x.png in Resources */,
 				3FD1E5F81D23A420004C0CC0 /* icon_qrcode@2x.png in Resources */,
 				3FD1E5D21D23A29F004C0CC0 /* LaunchScreen.storyboard in Resources */,
+				3F3853E41D3CE5C10001A125 /* icon_bottomRight@2x.png in Resources */,
 				3FD1E5CF1D23A29F004C0CC0 /* Assets.xcassets in Resources */,
+				3F3853D91D3CDE950001A125 /* icon_back.png in Resources */,
+				3F3853E11D3CE5B80001A125 /* icon_topRight@3x.png in Resources */,
+				3F3853E01D3CE5B80001A125 /* icon_topRight@2x.png in Resources */,
+				3F3853E81D3CE5C90001A125 /* icon_bottomleft@2x.png in Resources */,
+				3F3853E91D3CE5C90001A125 /* icon_bottomleft@3x.png in Resources */,
+				3F3853EE1D3CE6630001A125 /* icon_QRCodeScanLine@2x.png in Resources */,
 				3FD1E5F71D23A420004C0CC0 /* icon_qrcode@3x.png in Resources */,
+				3F3853EF1D3CE6630001A125 /* icon_QRCodeScanLine@3x.png in Resources */,
+				3F3853DD1D3CE5B00001A125 /* icon_topLeft@3x.png in Resources */,
 				3FD1E5CD1D23A29F004C0CC0 /* Main.storyboard in Resources */,
+				3F3853DC1D3CE5B00001A125 /* icon_topLeft@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F5FD1B41D26701B005EBA9E /* QrCodeViewController.m in Sources */,
+				3F3853D71D3CCAEF0001A125 /* WebViewController.m in Sources */,
 				3FD1E5CA1D23A29F004C0CC0 /* ViewController.m in Sources */,
 				3FD1E5C71D23A29F004C0CC0 /* AppDelegate.m in Sources */,
 				3FD1E5C41D23A29F004C0CC0 /* main.m in Sources */,

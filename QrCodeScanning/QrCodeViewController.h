@@ -9,4 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface QrCodeViewController : UIViewController
+// block扫描结果
+@property (nonatomic, copy) void (^ScanResultsBlock)(QrCodeViewController *qrCodeScanVC,NSString *code);
 @end

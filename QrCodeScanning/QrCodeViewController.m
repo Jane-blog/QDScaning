@@ -35,11 +35,23 @@
     [self qrCodeUiConfig];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    // 开始扫描
+    [captureSession startRunning];
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     // 结束扫描
     [captureSession stopRunning];
-    
+    if (captureSession) {
+        captureSession = nil;
+    }
+    if (capturwVideoPreviewLayer) {
+        capturwVideoPreviewLayer = nil;
+    }
 }
 
 - (void)qrCodeUiConfig {
@@ -51,7 +63,7 @@
     captureDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
     if (!captureDeviceInput) {
         
-        NSLog(@"%@", [error localizedDescription]);
+        NSLog(@"error : %@", [error localizedDescription]);
         return;
     }
     // 创建输出信息
@@ -104,13 +116,54 @@
         [captureSession setSessionPreset:AVCaptureSessionPresetHigh];
     }
     [captureSession startRunning];
+    // 添加可见的扫描区域
+    [self setVisibleScanningArea];
     
     //返回button
     UIButton * backButton=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/ 2-25, SCREEN_HEIGHT-100, 50, 50)];
     [backButton setTitle:@"返回" forState:UIControlStateNormal];
-    [backButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
+    [backButton setTintColor:[UIColor whiteColor]];
+    [backButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     [backButton addTarget:self action:@selector(backAction) forControlEvents:(UIControlEventTouchUpInside)];
+    // 设置可见的扫描区域
     [self.view addSubview:backButton];
+}
+
+#pragma mark - 设置可见的扫描区域
+- (void)setVisibleScanningArea {
+    
+    // 四条线
+    UIView *topLeftViewLine = [self createViewWithFrame:CGRectMake((SCREEN_WIDTH - 200) / 2, (SCREEN_HEIGHT - 200) / 2 , 200, 2)];
+    [self.view addSubview:topLeftViewLine];
+    
+    UIView *leftViewLine = [self createViewWithFrame:CGRectMake((SCREEN_WIDTH - 200) / 2, (SCREEN_HEIGHT - 200) / 2 , 2, 200)];
+    [self.view addSubview:leftViewLine];
+    
+    UIView *rightViewLine = [self createViewWithFrame:CGRectMake((SCREEN_WIDTH - 200) / 2 + 200 - 2, (SCREEN_HEIGHT - 200) / 2 , 2, 200)];
+    [self.view addSubview:rightViewLine];
+    UIView *bottomLeftViewLine = [self createViewWithFrame:CGRectMake((SCREEN_WIDTH - 200) / 2, (SCREEN_HEIGHT - 200) / 2 + 200, 200, 2)];
+    [self.view addSubview:bottomLeftViewLine];
+   
+    // 顶部——左边ViewLine
+    UIImage *iconImage = [UIImage imageNamed:@"icon_topLeft"];
+    UIImageView * topLeft_image = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(topLeftViewLine.frame), CGRectGetMidY(topLeftViewLine.frame) - 1, iconImage.size.width, iconImage.size.height)];
+    topLeft_image.image = iconImage;
+    [self.view addSubview:topLeft_image];
+    // 顶部——右边ViewLine
+    iconImage = [UIImage imageNamed:@"icon_topRight"];
+    UIImageView * topRight_image = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(topLeftViewLine.frame) - iconImage.size.width, CGRectGetMidY(topLeftViewLine.frame) - 1, iconImage.size.width, iconImage.size.height)];
+    topRight_image.image = iconImage;
+    [self.view addSubview:topRight_image];
+    // 底部——左边ViewLine
+    iconImage = [UIImage imageNamed:@"icon_bottomleft"];
+    UIImageView * bottomLeft_image = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(bottomLeftViewLine.frame), CGRectGetMidY(bottomLeftViewLine.frame) - iconImage.size.height + 1, iconImage.size.width, iconImage.size.height)];
+    bottomLeft_image.image = iconImage;
+    [self.view addSubview:bottomLeft_image];
+    // 底部——右边ViewLine
+    iconImage = [UIImage imageNamed:@"icon_bottomRight"];
+    UIImageView * bottomRight_image = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(bottomLeftViewLine.frame) - iconImage.size.width, CGRectGetMidY(bottomLeftViewLine.frame) - iconImage.size.height + 1, iconImage.size.width, iconImage.size.height)];
+    bottomRight_image.image = iconImage;
+    [self.view addSubview:bottomRight_image];
 }
 
 #pragma mark - 返回事件
@@ -123,22 +176,26 @@
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
     
     [captureSession stopRunning];
-    [capturwVideoPreviewLayer removeFromSuperlayer];
+    captureSession = nil;
+    
     if (metadataObjects != nil && metadataObjects.count > 0) {
-        
+
         // 输出扫描字符串
         AVMetadataMachineReadableCodeObject * metadataMachineReadableCodeObject = [metadataObjects objectAtIndex:0];
         self.code = metadataMachineReadableCodeObject.stringValue;
         NSLog(@"%@",self.code);
+        if (self.ScanResultsBlock) {
+            self.ScanResultsBlock(self,self.code);
+        }
     }
 }
 
-#pragma - mark 展示扫码结果
-- (void)showScanCode:(NSString *)code {
+#pragma mark -懒加载
+- (UIView *)createViewWithFrame:(CGRect)frame {
     
-    UIWebView * webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:code]]];
-    [self.view addSubview:webView];
+    UIView * lineView = [[UIView alloc] initWithFrame:frame];
+    lineView.backgroundColor = [UIColor whiteColor];
+    return lineView;
 }
 
 - (void)didReceiveMemoryWarning {

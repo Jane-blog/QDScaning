@@ -13,7 +13,7 @@
 
 #import "ViewController.h"
 #import "QrCodeViewController.h"
-
+#import "WebViewController.h"
 
 @interface ViewController ()
 {
@@ -45,10 +45,20 @@
 // 扫码功能
 - (void)scanButtonClicked {
     
+    __weak typeof(self) weakself = self;
     qrCodeScanViewController = [[QrCodeViewController alloc] init];
+    qrCodeScanViewController.ScanResultsBlock = ^(QrCodeViewController *qrCodeScanVC,NSString *code) {
+        // 关闭扫码
+        [qrCodeScanVC dismissViewControllerAnimated:YES completion:NULL];
+        // 打开网页
+        WebViewController * webViewVC = [[WebViewController alloc] init];
+        [webViewVC loadWebViewWithUrl:code];
+        [weakself.navigationController pushViewController:webViewVC animated:YES];
+    };
     [self presentViewController:qrCodeScanViewController animated:YES completion:NULL];
     
 }
+
 
 
 - (void)didReceiveMemoryWarning {
